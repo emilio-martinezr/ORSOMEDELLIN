@@ -39,7 +39,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
     }
@@ -90,6 +90,48 @@
       margin-bottom: 10px;
     }
 
+    .box {
+      background: #f9f9ff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s ease;
+      min-height: 400px;
+      /* altura mínima para que queden iguales */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .box:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .box h6 {
+      font-weight: bold;
+      margin-bottom: 10px;
+      min-height: 50px;
+      /* fuerza altura del título para mantener equilibrio */
+    }
+
+    .box .detail-box {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .box .detail-box div {
+      margin-top: auto;
+    }
+
+    .box .btn-f1 {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
     .btn-f1:hover {
       background: #333;
       color: #fff;
@@ -123,7 +165,7 @@
                   <div class="col-md-6">
                     <div class="img-box">
                       <div>
-                        <img src="images/inicio.webp" alt="" class="" />
+                          <img src="images/anime.svg" alt="ORSO gráfico" />
                       </div>
                     </div>
                   </div>
@@ -158,108 +200,95 @@
               </h3>
             </div>
             <p class="">
-              Formularios que puedes compartir con las Organizaciones Sociales
+              Formularios que puedes compartir con las Organizaciones Sociales de Medellín.
             </p>
             <div class="service_container ">
               <div class="row">
+
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
                       <img src="images/qr-one.png" alt="">
                     </div>
                     <div class="detail-box">
-                      <h6>
-                        Encesta de Percepción
-                      </h6>
+                      <h6>Caracterización o Actualización en ARCO</h6>
                       <div class="">
-                        <a
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSdCUjuUZ2ozzW4xtbRUN71wzjCdtrD2dES-r39xLKqsvOKTug/viewform?usp=dialog">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyam9N7FfS9EDdHgblzii4MvK5QNNQv198ERQr26x9mfdbVQ/viewform?usp=dialog"
+                          class="btn-f1" target="_blank">
                           Ver formulario
-                        </a><br>
-                        <a href="https://drive.google.com/file/d/1zmFN6Mc4bS2E5BMVgu3OCiT1kSw5GpuH/view?usp=sharing">
-                          Ver QR
                         </a>
+                        <a href="#" class="btn-f1" onclick="abrirModalImagen('arco')">Ver QR</a>
                         <hr>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="box b-2">
-                    <div class="img-box">
-                      <img src="images/qr-one.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Encuesta de Satisfacción
-                      </h6>
 
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
+                      <img src="images/qr-one.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>Encuesta de Percepción</h6>
                       <div class="">
-                        <a
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSdw2lv4qBCPF64MAu3WwTP9Xiv6BFoWwLTxGWgDDg7a4z0iCg/viewform?usp=dialog">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCUjuUZ2ozzW4xtbRUN71wzjCdtrD2dES-r39xLKqsvOKTug/viewform?usp=dialog"
+                          class="btn-f1" target="_blank">
                           Ver formulario
-                        </a><br>
-                        <a href="https://drive.google.com/file/d/1N42YEjX72ro3KwFQDmN6rLGR8dyMDxJ9/view?usp=sharing">
-                          Ver QR
                         </a>
+                        <a href="#" class="btn-f1" onclick="abrirModalImagen('percepcion')">Ver QR</a>
                         <hr>
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <div class="col-md-3">
-                  <div class="box b-3">
+                  <div class="box b-1">
                     <div class="img-box">
                       <img src="images/qr-one.png" alt="">
                     </div>
                     <div class="detail-box">
-                      <h6>
-                        Formulario F1
-                      </h6>
+                      <h6>Encuesta de Satisfacción</h6>
+                      <div class="">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw2lv4qBCPF64MAu3WwTP9Xiv6BFoWwLTxGWgDDg7a4z0iCg/viewform?usp=dialog"
+                          class="btn-f1" target="_blank">
+                          Ver formulario
+                        </a>
+                        <a href="#" class="btn-f1" onclick="abrirModalImagen('satisfaccion')">Ver QR</a>
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
+                      <img src="images/qr-one.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>Formulario F1</h6>
                       <div class="">
                         <!-- BOTÓN QUE ABRE MODAL -->
                         <a href="#" class="btn-f1" onclick="abrirModal()">Ver opciones</a>
                         <hr>
                       </div>
                     </div>
+                  </div>
+                </div>
 
-                  </div>
-                </div>
                 <div class="col-md-3">
-                  <div class="box b-4">
+                  <div class="box b-1">
                     <div class="img-box">
                       <img src="images/qr-one.png" alt="">
                     </div>
                     <div class="detail-box">
-                      <h6>
-                        ORSO a otro Nivel
-                      </h6>
+                      <h6>ORSO a otro Nivel</h6>
                       <div class="">
-                        <a
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSe-f-ceVyUDzrOsiw6wswtAc8DluaxtrVLqrP4yvpnuk897Dg/viewform?usp=dialoghttps://docs.google.com/forms/d/e/1FAIpQLSe-f-ceVyUDzrOsiw6wswtAc8DluaxtrVLqrP4yvpnuk897Dg/viewform?usp=dialog">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-f-ceVyUDzrOsiw6wswtAc8DluaxtrVLqrP4yvpnuk897Dg/viewform?usp=dialoghttps://docs.google.com/forms/d/e/1FAIpQLSe-f-ceVyUDzrOsiw6wswtAc8DluaxtrVLqrP4yvpnuk897Dg/viewform?usp=dialog"
+                          class="btn-f1" target="_blank">
                           Ver formulario
-                        </a>
-                        <hr>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="box b-4">
-                    <div class="img-box">
-                      <img src="images/qr-one.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Caracterización o Actualización en ARCO
-                      </h6>
-                      <div class="">
-                        <a
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSeyam9N7FfS9EDdHgblzii4MvK5QNNQv198ERQr26x9mfdbVQ/viewform?usp=dialog">
-                          Ver formulario
-                        </a><br>
-                        <a href="https://drive.google.com/file/d/1AvTPBVIpBevUZO2qvfOgWE42Fr3xPprU/view?usp=sharing">
-                          Ver QR
                         </a>
                         <hr>
                       </div>
@@ -283,9 +312,12 @@
 
           <!-- MODAL HTML -->
           <div id="claveModal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" style="position: relative;">
+              <span class="close" onclick="cerrarModal()"
+                style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
               <h4>Seleccione una opción</h4>
-              <a href="https://script.google.com/macros/s/AKfycbzyrvdUNYZCWYo6lP9lU4stIP32bewGPTDVqZmWtPGM4k7Cu-MTITZ4TbSzpyesLbMl/exec" target="_blank" class="btn-f1">Diligenciar Formulario F1</a>
+              <a href="https://script.google.com/macros/s/AKfycbzyrvdUNYZCWYo6lP9lU4stIP32bewGPTDVqZmWtPGM4k7Cu-MTITZ4TbSzpyesLbMl/exec"
+                target="_blank" class="btn-f1">Diligenciar Formulario F1</a>
               <br>
               <button class="btn-f1" onclick="seleccionarOpcion('revisar')">Revisar archivos</button>
               <br>
@@ -297,6 +329,7 @@
               </div>
             </div>
           </div>
+
 
           <script>
             let opcionSeleccionada = "";
@@ -316,7 +349,7 @@
               var clave = document.getElementById("claveInput").value;
 
               if (opcionSeleccionada === "revisar" && clave === "medellin2025") {
-                window.open("https://script.google.com/macros/s/AKfycbyD2RL7rX2xlftEgKYm5BUwDcMBpPUShGf6B1xHFFb9wHjWl_08xCR7qJtYCHKj41fv/exec", "_blank");
+                window.open("https://script.google.com/macros/s/AKfycbxD2wfp0N0gNBT6xgeZDgsGtZCxyxi4TFXrTgDmq6Qsgxctjae69ZmkJNr64AkZVHmCZw/exec", "_blank");
                 cerrarModal();
               } else if (opcionSeleccionada === "tablero" && clave === "Equipoorso2025") {
                 window.open("https://tusitio.com/gestionar-tablero", "_blank");
@@ -330,7 +363,7 @@
               document.getElementById("claveModal").style.display = "none";
             }
 
-            window.onclick = function(event) {
+            window.onclick = function (event) {
               var modal = document.getElementById("claveModal");
               if (event.target === modal) {
                 cerrarModal();
@@ -340,6 +373,46 @@
 
           <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
           <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
+
+          <!-- MODAL PARA IMÁGENES -->
+          <div id="modalImagen" class="modal">
+            <div class="modal-content" style="max-width:600px; position:relative;">
+              <span class="close" onclick="cerrarModalImagen()"
+                style="position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer;">&times;</span>
+              <div class="img-box">
+                <img id="modalImg" src="" alt="" style="max-width:100%; height:auto; border-radius:5px;">
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function abrirModalImagen(tipo) {
+              var ruta = "";
+              if (tipo === "percepcion") {
+                ruta = "images/Formulario percepcion.png";
+              } else if (tipo === "satisfaccion") {
+                ruta = "images/Formulario Satisfaccion.png";
+              } else if (tipo === "arco") {
+                ruta = "images/Formulario ARCO.png";
+              }
+              document.getElementById("modalImg").src = ruta;
+              document.getElementById("modalImagen").style.display = "flex";
+            }
+
+            function cerrarModalImagen() {
+              document.getElementById("modalImagen").style.display = "none";
+            }
+
+            window.onclick = function (event) {
+              var modal = document.getElementById("modalImagen");
+              if (event.target === modal) {
+                modal.style.display = "none";
+              }
+            }
+          </script>
+
 </body>
 
 </html>
