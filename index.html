@@ -281,15 +281,12 @@
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
-                      <img src="images/qr-one.png" alt="">
+                      <img src="images/kit.png" alt="">
                     </div>
                     <div class="detail-box">
-                      <h6>ORSO a otro Nivel</h6>
+                      <h6>Kit ORSO</h6>
                       <div class="">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-f-ceVyUDzrOsiw6wswtAc8DluaxtrVLqrP4yvpnuk897Dg/viewform?usp=dialoghttps://docs.google.com/forms/d/e/1FAIpQLSe-f-ceVyUDzrOsiw6wswtAc8DluaxtrVLqrP4yvpnuk897Dg/viewform?usp=dialog"
-                          class="btn-f1" target="_blank">
-                          Ver formulario
-                        </a>
+                        <a href="#" class="btn-f1" onclick="abrirModalKit()">Ver opciones</a>
                         <hr>
                       </div>
                     </div>
@@ -412,6 +409,41 @@
               }
             }
           </script>
+
+          <script>
+                function abrirModalKit() {
+                  document.getElementById("modalKit").style.display = "flex";
+                }
+
+                function cerrarModalKit() {
+                  document.getElementById("modalKit").style.display = "none";
+                }
+
+                // Agrega cierre si clic fuera del modal
+                window.onclick = function (event) {
+                  const modalImagen = document.getElementById("modalImagen");
+                  const modalClave = document.getElementById("claveModal");
+                  const modalKit = document.getElementById("modalKit");
+
+                  if (event.target === modalImagen) modalImagen.style.display = "none";
+                  if (event.target === modalClave) modalClave.style.display = "none";
+                  if (event.target === modalKit) modalKit.style.display = "none";
+                };
+              </script>
+
+
+                        <!-- MODAL KIT ORSO -->
+              <div id="modalKit" class="modal">
+                <div class="modal-content" style="position: relative;">
+                  <span class="close" onclick="cerrarModalKit()"
+                    style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
+                  <h4>Opciones del Kit ORSO</h4>
+                  <a href="https://script.google.com/macros/s/AKfycbwQ4f-sH4Yvm-8jM64u_9pA0KZxZ1C_wRuWJKo5lx9JaiyfIu4Jzh2ZBXQ_Z4TTl1G3OA/exec" target="_blank" class="btn-f1">📄 Ver formulario de actas</a>
+                  <br>
+                  <a href="https://drive.google.com/drive/folders/1ABC234567FOTOSDEKITORIGINAL" target="_blank" class="btn-f1">🖼️ Ver fotos</a>
+                </div>
+              </div>
+
 
 </body>
 
