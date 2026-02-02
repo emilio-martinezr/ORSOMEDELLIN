@@ -205,6 +205,25 @@
             <div class="service_container ">
               <div class="row">
 
+
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
+                      <img src="images/agenda.avif" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>Agenda, equipo SPC</h6>
+                      <div class="">
+                        <a href="#" class="btn-f1" onclick="abrirModalAgenda()">
+                        ir a agenda
+                      </a>
+
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
@@ -307,13 +326,30 @@
           </section>
           <!-- footer section -->
 
+
+          <!-- MODAL AGENDA -->
+            <div id="agendaModal" class="modal">
+              <div class="modal-content" style="position: relative;">
+                <span class="close" onclick="cerrarModalAgenda()"
+                  style="position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer;">&times;</span>
+
+                <h4>Acceso a Agenda SPC</h4>
+                <p>Ingrese la clave:</p>
+
+                <input type="password" id="agendaClave" placeholder="Clave de acceso">
+
+                <button onclick="verificarAgenda()">Ingresar</button>
+              </div>
+            </div>
+
+
           <!-- MODAL HTML -->
           <div id="claveModal" class="modal">
             <div class="modal-content" style="position: relative;">
               <span class="close" onclick="cerrarModal()"
                 style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
               <h4>Seleccione una opción</h4>
-              <a href="https://script.google.com/macros/s/AKfycbyni3j4WlFgY9bnhboxh6u0ziyiN1B-TbIe5v6Sf-PuTUb33eRJHhGMZx7I0NEpo-63/exec"
+              <a href="https://script.google.com/macros/s/AKfycbzJ_ToNxRtp91s0XtksiaaK6dNIXgL3XACttH_bsTA9ELj5CW3VmRAxSulPx2i_m6s6/exec"
                 target="_blank" class="btn-f1">Diligenciar Formulario F1</a>
               <br>
               <button class="btn-f1" onclick="seleccionarOpcion('revisar')">Revisar archivos</button>
@@ -330,6 +366,39 @@
               <br>
             </div>
           </div>
+              <script>
+                function abrirModalAgenda() {
+                  document.getElementById("agendaModal").style.display = "flex";
+                  document.getElementById("agendaClave").value = "";
+                }
+
+                function cerrarModalAgenda() {
+                  document.getElementById("agendaModal").style.display = "none";
+                }
+
+                function verificarAgenda() {
+                  const clave = document.getElementById("agendaClave").value;
+
+                  // 🔐 CLAVE DE AGENDA
+                  if (clave === "agendaSPC2026") {
+                    window.open(
+                      "https://script.google.com/macros/s/AKfycbx8Ej9K9NMVJz5GuqGu1ORR00n_wuDOcHjaAdlEmxFltV7J-DCoiSO4I_hA5rF3RW2B/exec",
+                      "_blank"
+                    );
+                    cerrarModalAgenda();
+                  } else {
+                    alert("Clave incorrecta");
+                  }
+                }
+
+                // Cerrar al hacer clic fuera
+                window.addEventListener("click", function (event) {
+                  const modal = document.getElementById("agendaModal");
+                  if (event.target === modal) {
+                    cerrarModalAgenda();
+                  }
+                });
+              </script>
 
 
           <script>
@@ -350,7 +419,7 @@
               var clave = document.getElementById("claveInput").value;
 
               if (opcionSeleccionada === "revisar" && clave === "medellin2025") {
-                window.open("https://script.google.com/macros/s/AKfycbzqP_FLhkTBfp9Qvi6Dni2fnse6L9knjiv_Q-_pPeQ7L_sqawQ_8CFthl1UK0U4jkNl/exec", "_blank");
+                window.open("https://script.google.com/macros/s/AKfycbwFMp7wxSQ6SF8rAd-PkCGazhjksRUvQwqie7D1A1XMZx8938TUilWgYjkCD99n8apgeg/exec", "_blank");
                 cerrarModal();
               } else if (opcionSeleccionada === "tablero" && clave === "Equipoorso2025") {
                 window.open("https://script.google.com/macros/s/AKfycbw84vWPSON5jTsDTd9rL2xq2wuTBlEgkqOATqat6rH1q7zw2-__O2GXl6AvQf6Iym9W4A/exec", "_blank");
@@ -452,7 +521,3 @@
 </body>
 
 </html>
-
-
-
-
