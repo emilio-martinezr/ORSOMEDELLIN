@@ -165,7 +165,7 @@
                   <div class="col-md-6">
                     <div class="img-box">
                       <div>
-                          <img src="images/anime.svg" alt="ORSO gráfico" />
+                        <img src="images/anime.svg" alt="ORSO gráfico" />
                       </div>
                     </div>
                   </div>
@@ -215,8 +215,8 @@
                       <h6>Agenda, equipo SPC</h6>
                       <div class="">
                         <a href="#" class="btn-f1" onclick="abrirModalAgenda()">
-                        ir a agenda
-                      </a>
+                          ir a agenda
+                        </a>
 
                         <hr>
                       </div>
@@ -243,24 +243,55 @@
                   </div>
                 </div>
 
+
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
-                      <img src="images/qr-one.png" alt="">
+                      <img src="images/PERCEPCION.jpg" alt="">
                     </div>
                     <div class="detail-box">
-                      <h6>Encuesta de Percepción</h6>
+                      <h6>Encuesta de percepción</h6>
                       <div class="">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCUjuUZ2ozzW4xtbRUN71wzjCdtrD2dES-r39xLKqsvOKTug/viewform?usp=dialog"
-                          class="btn-f1" target="_blank">
-                          Ver formulario
-                        </a>
-                        <a href="#" class="btn-f1" onclick="abrirModalImagen('percepcion')">Ver QR</a>
+                        <a href="#" class="btn-f1" onclick="abrirModalEncuesta()">Ver opciones</a>
                         <hr>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <!-- MODAL ENCUESTA -->
+                <div id="modalEncuesta" class="modal">
+                  <div class="modal-content" style="position: relative;">
+                    <span class="close" onclick="cerrarModalEncuesta()"
+                      style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
+
+                    <h4>Opciones de la Encuesta</h4>
+
+                    <!-- Compartir encuesta -->
+                    <button class="btn-f1" onclick="copiarLinkEncuesta()">📤 Compartir encuesta</button>
+                    <br>
+
+                    <!-- Ir a encuesta -->
+                    <a href="https://script.google.com/macros/s/AKfycbxunu6beoQbymopCaqvukfX3ZjsRPeE5il40IKTsYzoUW8fMBWfeedmCDYLOD8ZUvPvqA/exec" target="_blank" class="btn-f1">📝 Ir a encuesta</a>
+                    <br>
+
+                    <!-- Ver respuestas -->
+                    <a href="https://script.google.com/macros/s/AKfycbxPQk9RPGX_6EQxfq9-Q8wEnrvzHGS2L_EJ2Cm-QnpUfeT5BVcB12cxfNFLZMfJ24ep/exec" target="_blank" class="btn-f1">📊 Ver organizaciones que
+                      respondieron</a>
+                    <br>
+
+                    <!-- Tablero -->
+                    <button class="btn-f1" onclick="mostrarClaveEncuesta()">📈 Tablero de control</button>
+
+                    <div id="claveEncuestaSection" style="display:none; margin-top:15px;">
+                      <p>Ingrese la clave:</p>
+                      <input type="password" id="claveEncuestaInput" placeholder="Ingrese la clave">
+                      <button onclick="verificarClaveEncuesta()">Ingresar</button>
+                    </div>
+
+                  </div>
+                </div>
+
 
                 <div class="col-md-3">
                   <div class="box b-1">
@@ -328,19 +359,19 @@
 
 
           <!-- MODAL AGENDA -->
-            <div id="agendaModal" class="modal">
-              <div class="modal-content" style="position: relative;">
-                <span class="close" onclick="cerrarModalAgenda()"
-                  style="position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer;">&times;</span>
+          <div id="agendaModal" class="modal">
+            <div class="modal-content" style="position: relative;">
+              <span class="close" onclick="cerrarModalAgenda()"
+                style="position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer;">&times;</span>
 
-                <h4>Acceso a Agenda SPC</h4>
-                <p>Ingrese la clave:</p>
+              <h4>Acceso a Agenda SPC</h4>
+              <p>Ingrese la clave:</p>
 
-                <input type="password" id="agendaClave" placeholder="Clave de acceso">
+              <input type="password" id="agendaClave" placeholder="Clave de acceso">
 
-                <button onclick="verificarAgenda()">Ingresar</button>
-              </div>
+              <button onclick="verificarAgenda()">Ingresar</button>
             </div>
+          </div>
 
 
           <!-- MODAL HTML -->
@@ -349,7 +380,7 @@
               <span class="close" onclick="cerrarModal()"
                 style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
               <h4>Seleccione una opción</h4>
-              <a href="https://script.google.com/macros/s/AKfycbxEPZq5qoZzk53PSCS5nyPuDv2Ggv3mis8w7YrYaESZoA5-8ZljGcJxTQtNXixa_6uR/exec"
+              <a href="https://script.google.com/macros/s/AKfycbxwVi6VuZ11R-0x8jrwneuyOvCKVfBu4RXGTiMh9oJEptAFJhV4q5FULAjXF2U0nKd9/exec"
                 target="_blank" class="btn-f1">Diligenciar Formulario F1</a>
               <br>
               <button class="btn-f1" onclick="seleccionarOpcion('revisar')">Revisar archivos</button>
@@ -366,39 +397,39 @@
               <br>
             </div>
           </div>
-              <script>
-                function abrirModalAgenda() {
-                  document.getElementById("agendaModal").style.display = "flex";
-                  document.getElementById("agendaClave").value = "";
-                }
+          <script>
+            function abrirModalAgenda() {
+              document.getElementById("agendaModal").style.display = "flex";
+              document.getElementById("agendaClave").value = "";
+            }
 
-                function cerrarModalAgenda() {
-                  document.getElementById("agendaModal").style.display = "none";
-                }
+            function cerrarModalAgenda() {
+              document.getElementById("agendaModal").style.display = "none";
+            }
 
-                function verificarAgenda() {
-                  const clave = document.getElementById("agendaClave").value;
+            function verificarAgenda() {
+              const clave = document.getElementById("agendaClave").value;
 
-                  // 🔐 CLAVE DE AGENDA
-                  if (clave === "agendaSPC2026") {
-                    window.open(
-                      "https://script.google.com/macros/s/AKfycbx8Ej9K9NMVJz5GuqGu1ORR00n_wuDOcHjaAdlEmxFltV7J-DCoiSO4I_hA5rF3RW2B/exec",
-                      "_blank"
-                    );
-                    cerrarModalAgenda();
-                  } else {
-                    alert("Clave incorrecta");
-                  }
-                }
+              // 🔐 CLAVE DE AGENDA
+              if (clave === "agendaSPC2026") {
+                window.open(
+                  "https://script.google.com/macros/s/AKfycbx8Ej9K9NMVJz5GuqGu1ORR00n_wuDOcHjaAdlEmxFltV7J-DCoiSO4I_hA5rF3RW2B/exec",
+                  "_blank"
+                );
+                cerrarModalAgenda();
+              } else {
+                alert("Clave incorrecta");
+              }
+            }
 
-                // Cerrar al hacer clic fuera
-                window.addEventListener("click", function (event) {
-                  const modal = document.getElementById("agendaModal");
-                  if (event.target === modal) {
-                    cerrarModalAgenda();
-                  }
-                });
-              </script>
+            // Cerrar al hacer clic fuera
+            window.addEventListener("click", function (event) {
+              const modal = document.getElementById("agendaModal");
+              if (event.target === modal) {
+                cerrarModalAgenda();
+              }
+            });
+          </script>
 
 
           <script>
@@ -484,44 +515,90 @@
           </script>
 
           <script>
-                function abrirModalKit() {
-                  document.getElementById("modalKit").style.display = "flex";
-                }
+            function abrirModalKit() {
+              document.getElementById("modalKit").style.display = "flex";
+            }
 
-                function cerrarModalKit() {
-                  document.getElementById("modalKit").style.display = "none";
-                }
+            function cerrarModalKit() {
+              document.getElementById("modalKit").style.display = "none";
+            }
 
-                // Agrega cierre si clic fuera del modal
-                window.onclick = function (event) {
-                  const modalImagen = document.getElementById("modalImagen");
-                  const modalClave = document.getElementById("claveModal");
-                  const modalKit = document.getElementById("modalKit");
+            // Agrega cierre si clic fuera del modal
+            window.onclick = function (event) {
+              const modalImagen = document.getElementById("modalImagen");
+              const modalClave = document.getElementById("claveModal");
+              const modalKit = document.getElementById("modalKit");
 
-                  if (event.target === modalImagen) modalImagen.style.display = "none";
-                  if (event.target === modalClave) modalClave.style.display = "none";
-                  if (event.target === modalKit) modalKit.style.display = "none";
-                };
-              </script>
+              if (event.target === modalImagen) modalImagen.style.display = "none";
+              if (event.target === modalClave) modalClave.style.display = "none";
+              if (event.target === modalKit) modalKit.style.display = "none";
+            };
+          </script>
+
+          <script>
+            const linkEncuesta = "https://script.google.com/macros/s/AKfycbxunu6beoQbymopCaqvukfX3ZjsRPeE5il40IKTsYzoUW8fMBWfeedmCDYLOD8ZUvPvqA/exec";
+
+            function abrirModalEncuesta() {
+              document.getElementById("modalEncuesta").style.display = "flex";
+            }
+
+            function cerrarModalEncuesta() {
+              document.getElementById("modalEncuesta").style.display = "none";
+            }
+
+            function copiarLinkEncuesta() {
+              navigator.clipboard.writeText(linkEncuesta)
+                .then(() => {
+                  alert("✅ Link copiado al portapapeles");
+                })
+                .catch(err => {
+                  alert("Error al copiar el link");
+                });
+            }
+
+            // Cerrar si se hace clic fuera
+            window.addEventListener("click", function (event) {
+              const modalEncuesta = document.getElementById("modalEncuesta");
+              if (event.target === modalEncuesta) {
+                modalEncuesta.style.display = "none";
+              }
+            });
+          </script>
+
+          <script>
+            function mostrarClaveEncuesta() {
+              document.getElementById("claveEncuestaSection").style.display = "block";
+              document.getElementById("claveEncuestaInput").value = "";
+            }
+
+            function verificarClaveEncuesta() {
+              const clave = document.getElementById("claveEncuestaInput").value;
+
+              if (clave === "12345") {
+                window.open("https://TU_LINK_DE_TABLERO", "_blank");
+                cerrarModalEncuesta();
+              } else {
+                alert("Clave incorrecta");
+              }
+            }
+          </script>
 
 
-                        <!-- MODAL KIT ORSO -->
-              <div id="modalKit" class="modal">
-                <div class="modal-content" style="position: relative;">
-                  <span class="close" onclick="cerrarModalKit()"
-                    style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
-                  <h4>Opciones del Kit ORSO</h4>
-                  <a href="https://script.google.com/macros/s/AKfycbwQ4f-sH4Yvm-8jM64u_9pA0KZxZ1C_wRuWJKo5lx9JaiyfIu4Jzh2ZBXQ_Z4TTl1G3OA/exec" target="_blank" class="btn-f1">📄 Ver formulario de actas</a>
-                  <br>
-                  <a href="https://script.google.com/macros/s/AKfycbzkH0CCR6CMro8FYZiZqFbInhY3j2huTqKnP7GgflpsZRcibKJmkeab-gbaf66ys-55/exec" target="_blank" class="btn-f1">🔢 Asignación númerica de Actas</a>
-                 <!-- <a href="https://drive.google.com/drive/folders/1ABC234567FOTOSDEKITORIGINAL" target="_blank" class="btn-f1">🖼️ Ver fotos</a> -->
-                </div>
-              </div>
-
+          <!-- MODAL KIT ORSO -->
+          <div id="modalKit" class="modal">
+            <div class="modal-content" style="position: relative;">
+              <span class="close" onclick="cerrarModalKit()"
+                style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">&times;</span>
+              <h4>Opciones del Kit ORSO</h4>
+              <a href="https://script.google.com/macros/s/AKfycbwQ4f-sH4Yvm-8jM64u_9pA0KZxZ1C_wRuWJKo5lx9JaiyfIu4Jzh2ZBXQ_Z4TTl1G3OA/exec"
+                target="_blank" class="btn-f1">📄 Ver formulario de actas</a>
+              <br>
+              <a href="https://script.google.com/macros/s/AKfycbzkH0CCR6CMro8FYZiZqFbInhY3j2huTqKnP7GgflpsZRcibKJmkeab-gbaf66ys-55/exec"
+                target="_blank" class="btn-f1">🔢 Asignación númerica de Actas</a>
+              <!-- <a href="https://drive.google.com/drive/folders/1ABC234567FOTOSDEKITORIGINAL" target="_blank" class="btn-f1">🖼️ Ver fotos</a> -->
+            </div>
+          </div>
 
 </body>
 
 </html>
-
-
-
