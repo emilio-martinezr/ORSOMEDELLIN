@@ -272,11 +272,13 @@
                     <br>
 
                     <!-- Ir a encuesta -->
-                    <a href="https://script.google.com/macros/s/AKfycby0gOVeXKZ1rKXoZVRvDgaP0y1K24TWiiveLO7Fbu7xBkOfVmfW6_2TvP_12gIQ60SnYg/exec" target="_blank" class="btn-f1">📝 Ir a encuesta</a>
+                    <a href="https://script.google.com/macros/s/AKfycby0gOVeXKZ1rKXoZVRvDgaP0y1K24TWiiveLO7Fbu7xBkOfVmfW6_2TvP_12gIQ60SnYg/exec"
+                      target="_blank" class="btn-f1">📝 Ir a encuesta</a>
                     <br>
 
                     <!-- Ver respuestas -->
-                    <a href="https://script.google.com/macros/s/AKfycbxPQk9RPGX_6EQxfq9-Q8wEnrvzHGS2L_EJ2Cm-QnpUfeT5BVcB12cxfNFLZMfJ24ep/exec" target="_blank" class="btn-f1">📊 Ver organizaciones que
+                    <a href="https://script.google.com/macros/s/AKfycbxPQk9RPGX_6EQxfq9-Q8wEnrvzHGS2L_EJ2Cm-QnpUfeT5BVcB12cxfNFLZMfJ24ep/exec"
+                      target="_blank" class="btn-f1">📊 Ver organizaciones que
                       respondieron</a>
                     <br>
 
@@ -547,13 +549,38 @@
             }
 
             function copiarLinkEncuesta() {
-              navigator.clipboard.writeText(linkEncuesta)
-                .then(() => {
-                  alert("✅ Link copiado al portapapeles");
-                })
-                .catch(err => {
-                  alert("Error al copiar el link");
-                });
+              const texto = linkEncuesta;
+
+              if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(texto)
+                  .then(() => {
+                    alert("✅ Link copiado al portapapeles");
+                  })
+                  .catch(() => {
+                    copiarFallback(texto);
+                  });
+              } else {
+                copiarFallback(texto);
+              }
+            }
+
+            function copiarFallback(texto) {
+              const textarea = document.createElement("textarea");
+              textarea.value = texto;
+              textarea.style.position = "fixed";
+              textarea.style.left = "-999999px";
+              document.body.appendChild(textarea);
+              textarea.focus();
+              textarea.select();
+
+              try {
+                document.execCommand("copy");
+                alert("✅ Link copiado al portapapeles");
+              } catch (err) {
+                alert("❌ No se pudo copiar el enlace");
+              }
+
+              document.body.removeChild(textarea);
             }
 
             // Cerrar si se hace clic fuera
