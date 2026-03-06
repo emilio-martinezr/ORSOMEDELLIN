@@ -259,7 +259,22 @@
                   </div>
                 </div>
 
-                <!-- MODAL ENCUESTA -->
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
+                      <img src="images/PERCEPCION.jpg" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>Encuesta de Satisfacción</h6>
+                      <div class="">
+                        <a href="#" class="btn-f1" onclick="abrirModalSatisfaccion()">Ver opciones</a>
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- MODAL ENCUESTA PERCEPCION-->
                 <div id="modalEncuesta" class="modal">
                   <div class="modal-content" style="position: relative;">
                     <span class="close" onclick="cerrarModalEncuesta()"
@@ -295,24 +310,40 @@
                 </div>
 
 
-                <div class="col-md-3">
-                  <div class="box b-1">
-                    <div class="img-box">
-                      <img src="images/qr-one.png" alt="">
+
+                <!-- MODAL ENCUESTA SATISFACCION-->
+                <div id="modalSatisfaccion" class="modal">
+                  <div class="modal-content" style="position: relative;">
+
+                    <span class="close" onclick="cerrarModalSatisfaccion()"
+                      style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">
+                      &times;
+                    </span>
+
+                    <h4>Opciones de la Encuesta de Satisfacción</h4>
+
+                    <button class="btn-f1" onclick="copiarLinkSatisfaccion()">📤 Compartir encuesta</button>
+                    <br>
+
+                    <a href="https://script.google.com/macros/s/AKfycbzyuZz1Yehw5OJYmBvBD9sigaYkporewaQyub_F5Q1iL4gqTOig-Qy6o2W-ga_Bfmd3Xw/exec"
+                      target="_blank" class="btn-f1">📝 Ir a encuesta</a>
+                    <br>
+
+                    <a href="https://script.google.com/macros/s/AKfycbwmNR0ijwFxoKZPrXpHzWfsaLb9DO7nCqonzl3uiMl3n9NbzQya7KiOE1ANlCLb8bE6/exec"
+                      target="_blank" class="btn-f1">📊 Ver organizaciones que respondieron</a>
+                    <br>
+
+                    <button class="btn-f1" onclick="mostrarClaveSatisfaccion()">📈 Tablero de control</button>
+
+                    <div id="claveSatisfaccionSection" style="display:none; margin-top:15px;">
+                      <p>Ingrese la clave:</p>
+                      <input type="password" id="claveSatisfaccionInput" placeholder="Ingrese la clave">
+                      <button onclick="verificarClaveSatisfaccion()">Ingresar</button>
                     </div>
-                    <div class="detail-box">
-                      <h6>Encuesta de Satisfacción</h6>
-                      <div class="">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw2lv4qBCPF64MAu3WwTP9Xiv6BFoWwLTxGWgDDg7a4z0iCg/viewform?usp=dialog"
-                          class="btn-f1" target="_blank">
-                          Ver formulario
-                        </a>
-                        <a href="#" class="btn-f1" onclick="abrirModalImagen('satisfaccion')">Ver QR</a>
-                        <hr>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
+
 
                 <div class="col-md-3">
                   <div class="box b-1">
@@ -608,6 +639,38 @@
                 alert("Clave incorrecta");
               }
             }
+
+
+            const linkSatisfaccion = "https://script.google.com/macros/s/AKfycbzyuZz1Yehw5OJYmBvBD9sigaYkporewaQyub_F5Q1iL4gqTOig-Qy6o2W-ga_Bfmd3Xw/exec";
+            function abrirModalSatisfaccion() {
+              document.getElementById("modalSatisfaccion").style.display = "flex";
+            }
+            function cerrarModalSatisfaccion() {
+              document.getElementById("modalSatisfaccion").style.display = "none";
+            }
+            function copiarLinkSatisfaccion() {
+              const texto = linkSatisfaccion;
+              if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(texto)
+                  .then(() => { alert("✅ Link copiado al portapapeles"); })
+                  .catch(() => { copiarFallback(texto); });
+              } else {
+                copiarFallback(texto);
+              }
+            }
+            function mostrarClaveSatisfaccion() {
+              document.getElementById("claveSatisfaccionSection").style.display = "block";
+              document.getElementById("claveSatisfaccionInput").value = "";
+            }
+            function verificarClaveSatisfaccion() {
+              const clave = document.getElementById("claveSatisfaccionInput").value;
+              if (clave === "Equipoorso2026") {
+                window.open("https://script.google.com/macros/s/AKfycbwcGG4zW8tA4Zn10NX4Sfev7z139KN5chPvdv6C7y5rwk9biVP3zHJVxtK4CqY4R0uc/exec", "_blank");
+                cerrarModalSatisfaccion();
+              } else {
+                alert("Clave incorrecta");
+              }
+            }
           </script>
 
 
@@ -626,9 +689,13 @@
             </div>
           </div>
 
+
+
+
+
+
+
+
 </body>
 
 </html>
-
-
-
