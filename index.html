@@ -375,6 +375,28 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
+                      <img src="images/CARPETA.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>Gestión Interna</h6>
+                      <div class="">
+                        <a href="#" class="btn-f1" onclick="abrirModalGestion()">
+                          Ver opciones
+                        </a>
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
               </div>
             </div>
           </div>
@@ -406,6 +428,25 @@
             </div>
           </div>
 
+          <!-- MODAL GESTION INTERNA -->
+          <div id="modalGestion" class="modal">
+            <div class="modal-content" style="position: relative;">
+
+              <span class="close" onclick="cerrarModalGestion()"
+                style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">
+                &times;
+              </span>
+
+              <h4>Gestión Interna</h4>
+
+              <a href="https://script.google.com/macros/s/AKfycbwSSOaJmJjKmuXQ0UrlXEI86x1mDuKweWF36Ng6vW4Cplp5F7HApwO_iYkp1d6EXbwPSw/exec"
+                target="_blank" class="btn-f1">
+                📄 Ir al formulario
+              </a>
+
+            </div>
+          </div>
+
 
           <!-- MODAL HTML -->
           <div id="claveModal" class="modal">
@@ -430,6 +471,27 @@
               <br>
             </div>
           </div>
+
+
+
+          <script>
+            function abrirModalGestion() {
+              document.getElementById("modalGestion").style.display = "flex";
+            }
+
+            function cerrarModalGestion() {
+              document.getElementById("modalGestion").style.display = "none";
+            }
+
+            window.addEventListener("click", function (event) {
+              const modalGestion = document.getElementById("modalGestion");
+              if (event.target === modalGestion) {
+                modalGestion.style.display = "none";
+              }
+            });
+          </script>
+
+
           <script>
             function abrirModalAgenda() {
               document.getElementById("agendaModal").style.display = "flex";
@@ -688,12 +750,6 @@
               <!-- <a href="https://drive.google.com/drive/folders/1ABC234567FOTOSDEKITORIGINAL" target="_blank" class="btn-f1">🖼️ Ver fotos</a> -->
             </div>
           </div>
-
-
-
-
-
-
 
 
 </body>
