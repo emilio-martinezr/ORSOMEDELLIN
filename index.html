@@ -227,6 +227,26 @@
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
+                      <img src="images/ARCO.png" alt="">
+                    </div>
+
+                    <div class="detail-box">
+                      <h6>Nueva ORSO</h6>
+
+                      <div class="">
+                        <a href="#" class="btn-f1" onclick="abrirModalNuevaOrso()">
+                          Ver opciones
+                        </a>
+
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
                       <img src="images/qr-one.png" alt="">
                     </div>
                     <div class="detail-box">
@@ -291,6 +311,11 @@
                       target="_blank" class="btn-f1">📝 Ir a encuesta</a>
                     <br>
 
+                    <button class="btn-f1" onclick="abrirModalImagen('percepcion')">
+                      📱 Ver QR
+                    </button>
+                    <br>
+
                     <!-- Ver respuestas -->
                     <a href="https://script.google.com/macros/s/AKfycbxPQk9RPGX_6EQxfq9-Q8wEnrvzHGS2L_EJ2Cm-QnpUfeT5BVcB12cxfNFLZMfJ24ep/exec"
                       target="_blank" class="btn-f1">📊 Ver organizaciones que
@@ -327,6 +352,11 @@
 
                     <a href="https://script.google.com/macros/s/AKfycbzyuZz1Yehw5OJYmBvBD9sigaYkporewaQyub_F5Q1iL4gqTOig-Qy6o2W-ga_Bfmd3Xw/exec"
                       target="_blank" class="btn-f1">📝 Ir a encuesta</a>
+                    <br>
+
+                    <button class="btn-f1" onclick="abrirModalImagen('satisfaccion')">
+                      📱 Ver QR
+                    </button>
                     <br>
 
                     <a href="https://script.google.com/macros/s/AKfycbwmNR0ijwFxoKZPrXpHzWfsaLb9DO7nCqonzl3uiMl3n9NbzQya7KiOE1ANlCLb8bE6/exec"
@@ -426,6 +456,48 @@
             </div>
           </div>
 
+          <!-- MODAL NUEVA ORSO -->
+          <div id="modalNuevaOrso" class="modal">
+
+            <div class="modal-content" style="position: relative;">
+
+              <span class="close" onclick="cerrarModalNuevaOrso()" style="
+        position:absolute;
+        top:10px;
+        right:15px;
+        font-size:28px;
+        cursor:pointer;
+      ">
+                &times;
+              </span>
+
+              <h4>Opciones Nueva ORSO</h4>
+
+              <!-- FORMULARIO -->
+              <a href="https://script.google.com/macros/s/AKfycbx4zDHQpWxU803S4SFqrhk0TkpDVWIFpUTVnQjg8rVFpCytybRiAFTnnXigU3A2HuOtLA/exec"
+                target="_blank" class="btn-f1">
+                📝 Ver formulario
+              </a>
+
+              <br>
+
+              <!-- RESPUESTAS -->
+              <a href="https://script.google.com/macros/s/AKfycby9HQ0DhdY11Bdfz-mPFWtwG3m7ltTctKcAd7tFnHHlFlWGfATtF5m4tC5GJiZIi8E-yg/exec"
+                target="_blank" class="btn-f1">
+                📊 Ver respuestas
+              </a>
+
+              <br>
+
+              <!-- QR -->
+              <button class="btn-f1" onclick="abrirModalImagen('nuevaOrso')">
+                📱 Ver QR
+              </button>
+
+            </div>
+
+          </div>
+
           <!-- MODAL GESTION INTERNA -->
           <div id="modalGestion" class="modal">
             <div class="modal-content" style="position: relative;">
@@ -487,6 +559,36 @@
                 modalGestion.style.display = "none";
               }
             });
+          </script>
+
+          <script>
+
+            function abrirModalNuevaOrso() {
+
+              document.getElementById(
+                "modalNuevaOrso"
+              ).style.display = "flex";
+            }
+
+            function cerrarModalNuevaOrso() {
+
+              document.getElementById(
+                "modalNuevaOrso"
+              ).style.display = "none";
+            }
+
+            // CERRAR SI CLIC FUERA
+            window.addEventListener("click", function (event) {
+
+              const modal =
+                document.getElementById("modalNuevaOrso");
+
+              if (event.target === modal) {
+
+                modal.style.display = "none";
+              }
+            });
+
           </script>
 
 
@@ -557,12 +659,16 @@
               document.getElementById("claveModal").style.display = "none";
             }
 
-            window.onclick = function (event) {
-              var modal = document.getElementById("claveModal");
+            window.addEventListener("click", function (event) {
+
+              var modal =
+                document.getElementById("modalImagen");
+
               if (event.target === modal) {
-                cerrarModal();
+
+                modal.style.display = "none";
               }
-            }
+            });
           </script>
 
           <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -585,11 +691,14 @@
             function abrirModalImagen(tipo) {
               var ruta = "";
               if (tipo === "percepcion") {
-                ruta = "images/Formulario percepcion.png";
+                ruta = "images/QR-PERCEPCION.PNG";
               } else if (tipo === "satisfaccion") {
-                ruta = "images/Formulario Satisfaccion.png";
+                ruta = "images/QR-SATISFACCION.PNG";
               } else if (tipo === "arco") {
                 ruta = "images/Formulario ARCO.png";
+              }
+              else if (tipo === "nuevaOrso") {
+                ruta = "images/QR-ARCO.png";
               }
               document.getElementById("modalImg").src = ruta;
               document.getElementById("modalImagen").style.display = "flex";
@@ -599,12 +708,16 @@
               document.getElementById("modalImagen").style.display = "none";
             }
 
-            window.onclick = function (event) {
-              var modal = document.getElementById("modalImagen");
+            window.addEventListener("click", function (event) {
+
+              var modal =
+                document.getElementById("modalImagen");
+
               if (event.target === modal) {
+
                 modal.style.display = "none";
               }
-            }
+            });
           </script>
 
           <script>
