@@ -406,21 +406,6 @@
           <!-- footer section -->
 
 
-          <!-- MODAL AGENDA -->
-          <div id="agendaModal" class="modal">
-            <div class="modal-content" style="position: relative;">
-              <span class="close" onclick="cerrarModalAgenda()"
-                style="position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer;">&times;</span>
-
-              <h4>Acceso a Agenda SPC</h4>
-              <p>Ingrese la clave:</p>
-
-              <input type="password" id="agendaClave" placeholder="Clave de acceso">
-
-              <button onclick="verificarAgenda()">Ingresar</button>
-            </div>
-          </div>
-
           <!-- MODAL NUEVA ORSO -->
           <div id="modalNuevaOrso" class="modal">
 
@@ -554,41 +539,6 @@
               }
             });
 
-          </script>
-
-
-          <script>
-            function abrirModalAgenda() {
-              document.getElementById("agendaModal").style.display = "flex";
-              document.getElementById("agendaClave").value = "";
-            }
-
-            function cerrarModalAgenda() {
-              document.getElementById("agendaModal").style.display = "none";
-            }
-
-            function verificarAgenda() {
-              const clave = document.getElementById("agendaClave").value;
-
-              // 🔐 CLAVE DE AGENDA
-              if (clave === "agendaSPC2026") {
-                window.open(
-                  "https://script.google.com/macros/s/AKfycbx8Ej9K9NMVJz5GuqGu1ORR00n_wuDOcHjaAdlEmxFltV7J-DCoiSO4I_hA5rF3RW2B/exec",
-                  "_blank"
-                );
-                cerrarModalAgenda();
-              } else {
-                alert("Clave incorrecta");
-              }
-            }
-
-            // Cerrar al hacer clic fuera
-            window.addEventListener("click", function (event) {
-              const modal = document.getElementById("agendaModal");
-              if (event.target === modal) {
-                cerrarModalAgenda();
-              }
-            });
           </script>
 
 
