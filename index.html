@@ -389,6 +389,24 @@
                 </div>
 
 
+                <div class="col-md-3">
+                  <div class="box b-1">
+                    <div class="img-box">
+                      <img src="images/CARPETA.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h6>PAI</h6>
+                      <div class="">
+                        <a href="#" class="btn-f1" onclick="abrirModalPAI()">
+                          Ver opciones
+                        </a>
+                        <hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
 
               </div>
             </div>
@@ -468,6 +486,26 @@
           </div>
 
 
+          <!-- PAI -->
+          <div id="modalGestion" class="modal">
+            <div class="modal-content" style="position: relative;">
+
+              <span class="close" onclick="cerrarModalPAI()"
+                style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">
+                &times;
+              </span>
+
+              <h4>PAI</h4>
+
+              <a href="https://script.google.com/macros/s/AKfycbyqEDA1kLxJ7QOH6fqrl_tI7uUkUvzcjf8iWvGYPou9YpNe2z0aMJNj9EgeCuhmDjTr/exec"
+                target="_blank" class="btn-f1">
+                📄 Ir al formulario
+              </a>
+
+            </div>
+          </div>
+
+
           <!-- MODAL HTML -->
           <div id="claveModal" class="modal">
             <div class="modal-content" style="position: relative;">
@@ -500,6 +538,24 @@
             }
 
             function cerrarModalGestion() {
+              document.getElementById("modalGestion").style.display = "none";
+            }
+
+            window.addEventListener("click", function (event) {
+              const modalGestion = document.getElementById("modalGestion");
+              if (event.target === modalGestion) {
+                modalGestion.style.display = "none";
+              }
+            });
+          </script>
+
+
+          <script>
+            function abrirModalPAI() {
+              document.getElementById("modalGestion").style.display = "flex";
+            }
+
+            function cerrarModalPAI() {
               document.getElementById("modalGestion").style.display = "none";
             }
 
