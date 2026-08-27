@@ -534,15 +534,16 @@
 
           <script>
             function abrirModalGestion() {
-              document.getElementById("modalGestionPAI").style.display = "flex";
+              document.getElementById("modalGestion").style.display = "flex";
             }
-            
+          
             function cerrarModalGestion() {
               document.getElementById("modalGestion").style.display = "none";
             }
-
+          
             window.addEventListener("click", function (event) {
               const modalGestion = document.getElementById("modalGestion");
+          
               if (event.target === modalGestion) {
                 modalGestion.style.display = "none";
               }
