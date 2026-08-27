@@ -486,24 +486,25 @@
           </div>
 
 
-          <!-- PAI -->
-          <div id="modalGestionPAI" class="modal">
-            <div class="modal-content" style="position: relative;">
-
-              <span class="close" onclick="cerrarModalPAI()"
-                style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">
-                &times;
-              </span>
-
-              <h4>PAI</h4>
-
-              <a href="https://script.google.com/macros/s/AKfycbyqEDA1kLxJ7QOH6fqrl_tI7uUkUvzcjf8iWvGYPou9YpNe2z0aMJNj9EgeCuhmDjTr/exec"
-                target="_blank" class="btn-f1">
-                📄 Ir al formulario
-              </a>
-
+            <!-- PAI -->
+            <div id="modalGestionPAI" class="modal">
+              <div class="modal-content" style="position: relative;">
+            
+                <span class="close" onclick="cerrarModalPAI()"
+                  style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer;">
+                  &times;
+                </span>
+            
+                <h4>PAI</h4>
+            
+                <a href="https://script.google.com/macros/s/AKfycbyqEDA1kLxJ7QOH6fqrl_tI7uUkUvzcjf8iWvGYPou9YpNe2z0aMJNj9EgeCuhmDjTr/exec"
+                  target="_blank"
+                  class="btn-f1">
+                  📄 Ir al formulario PAI
+                </a>
+            
+              </div>
             </div>
-          </div>
 
 
           <!-- MODAL HTML -->
@@ -533,12 +534,12 @@
 
 
           <script>
-            function abrirModalGestion() {
-              document.getElementById("modalGestion").style.display = "flex";
+            function abrirModalPAI() {
+              document.getElementById("modalGestionPAI").style.display = "flex";
             }
-
-            function cerrarModalGestion() {
-              document.getElementById("modalGestion").style.display = "none";
+            
+            function cerrarModalPAI() {
+              document.getElementById("modalGestionPAI").style.display = "none";
             }
 
             window.addEventListener("click", function (event) {
