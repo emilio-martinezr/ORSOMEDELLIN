@@ -374,7 +374,7 @@
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
-                      <img src="images/PAI.png" alt="">
+                      <img src="images/CARPETA.png" alt="">
                     </div>
                     <div class="detail-box">
                       <h6>Gestión Interna</h6>
@@ -392,7 +392,7 @@
                 <div class="col-md-3">
                   <div class="box b-1">
                     <div class="img-box">
-                      <img src="images/CARPETA.png" alt="">
+                      <img src="images/PAI.png" alt="">
                     </div>
                     <div class="detail-box">
                       <h6>PAI</h6>
@@ -487,7 +487,7 @@
 
 
           <!-- PAI -->
-          <div id="modalGestion" class="modal">
+          <div id="modalGestionPAI" class="modal">
             <div class="modal-content" style="position: relative;">
 
               <span class="close" onclick="cerrarModalPAI()"
@@ -556,13 +556,13 @@
             }
 
             function cerrarModalPAI() {
-              document.getElementById("modalGestion").style.display = "none";
+              document.getElementById("modalGestionPAI").style.display = "none";
             }
 
             window.addEventListener("click", function (event) {
-              const modalGestion = document.getElementById("modalGestion");
-              if (event.target === modalGestion) {
-                modalGestion.style.display = "none";
+              const modalGestionPAI = document.getElementById("modalGestionPAI");
+              if (event.target === modalGestionPAI) {
+                modalGestionPAI.style.display = "none";
               }
             });
           </script>
